@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Style for the form and input fields */
+      form {
+        padding: 20px;
+        background-color: #f2f2f2;
+        width: 400px;
+        margin: auto;
+        text-align: center;
+        border-radius: 10px;
+      }
+
+      input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      /* Style for the result section */
+      .result {
+        padding: 20px;
+        background-color: #f2f2f2;
+        width: 400px;
+        margin: auto;
+        text-align: center;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+
+      /* Style for the result message */
+      .result p {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      /* Style for the result value */
+      .result span {
+        font-size: 24px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Form to get the user's weight and height -->
+    <form>
+      <label for="weight">Weight (kg):</label>
+      <input type="text" id="weight" name="weight">
+      
+      <label for="height">Height (cm):</label>
+      <input type="text" id="height" name="height">
+      
+      <input type="button" value="Calculate" onclick="calculateBMI()">
+    </form>
+
+    <!-- Result section to display the calculated BMI -->
+    <div class="result" id="result">
+      <p>Your BMI is:</p>
+      <span id="bmi"></span>
+    </div>
+
+    <!-- JavaScript function to calculate the BMI -->
+    <script>
+      function calculateBMI() {
+        // Get the values entered by the user
+        var weight = document.getElementById("weight").value;
+        var height = document.getElementById("height").value;
+
+        // Convert height from cm to m
+        height = height / 100;
+
+        // Calculate the BMI
+        var bmi = weight / (height * height);
+
+        // Display the calculated BMI
+        document.getElementById("bmi").innerHTML = bmi.toFixed(2);
+      }
+    </script>
+  </body>
+</html>
